@@ -26,10 +26,10 @@
 
 // console.log(checkArraySum([3,4,3]))
 
-//SECTION - write a function that an array of item and return only intergers.
+//SECTION - write a function that an array of item and return only integers.
 // ['son', 6, 'ben', 5, 9] -> [6,5,9]
 
-// function onlyInterger(arr) {
+// function onlyInteger(arr) {
 //   let integer = []
 //   for(let i = 0; i < arr.length; i++) {
 //     if(Number.isInteger(arr[i])){
