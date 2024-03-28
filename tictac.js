@@ -1,11 +1,13 @@
 let grid = [
-    [" "," "," "],
-    [" "," "," "],
-    [" "," "," "]
+    [" 1","2 ","3 "],
+    ["6 "," 5","4 "],
+    [" 7","8 "," 9"]
 
 ]
-for(let i = 0; i<grid.length; i++){
-     console.log(grid[i])
+for(let x = 0; x <grid.length; x++){
+    
+     console.log(grid[x])
 }
+
 
 

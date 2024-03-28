@@ -67,34 +67,34 @@
 // create function that takes a given date( 26/3/2024 ) return the day of the day of the week
 // as string assume that week start on Sunday.
 
-function getDayName(day){
-    const days = ['Sunday','Monday','TUesday','Wednesdday','Thursday','Friday']
-    let date = new Date()
-    return days [date.getDay()]
-}
-console.log(getDayName(3/26/2024))
+// function getDayName(day){
+//     const days = ['Sunday','Monday','TUesday','Wednesdday','Thursday','Friday']
+//     let date = new Date()
+//     return days [date.getDay()]
+// }
+// console.log(getDayName(3/26/2024))
 
-//ES6
-const getDayNameTwo = day => new Date(day).toLocaleDateString('en-us',{ weekday: 'long'})
-console.log(getDayNameTwo("2024-03-26"))
+// //ES6
+// const getDayNameTwo = day => new Date(day).toLocaleDateString('en-us',{ weekday: 'long'})
+// console.log(getDayNameTwo("2024-03-26"))
 
 //create a function that can take a flat array and change it to a nest arrays to repersent 
 //an incremental depth level.
 
 // Ex: nestArray ([1,2,6,3]) ->[1,[2[6,3]]]
 
-function nestArray (arr) {
- if(arr.length == 1) return arr 
- let temp = []
- for(let i = 0; i< arr.length; i++) 
- return [arr[0],nestArray(arr.slice(1))] 
+// function nestArray (arr) {
+//  if(arr.length == 1) return arr 
+//  let temp = []
+//  for(let i = 0; i< arr.length; i++) 
+//  return [arr[0],nestArray(arr.slice(1))] 
 
-}
-                                        // this ES5 function is broken 
-console.log( nestArray[1,2,3,4])
+// }
+//                                         // this ES5 function is broken 
+// console.log( nestArray[1,2,3,4])
 
-const nestArray3 = arr => arr.length === 1 ? arr : [arr[0], nestArray3(arr.slice(1))]
-console.log(nestArray3([1,2,3]))
+// const nestArray3 = arr => arr.length === 1 ? arr : [arr[0], nestArray3(arr.slice(1))]
+// console.log(nestArray3([1,2,3]))
 
 //create a funtion that takes two dates and return the number of days between the first 
 // and second date.
@@ -114,3 +114,23 @@ console.log (getDays (
     new Date("March 26 2024"),
     new Date("march 30 2024 ")
      ))
+
+// create a function that takes an array of stringified numbers as prarameter and the return an of numbers 
+// Ex : ["1","3","6.7"] -> [1,3,6.7]
+
+//ES6
+//  let arrayToNumbers = arr => arr.map( e => +e)
+
+//  console.log(arrayToNumbers(["1","3","6.7"]))
+
+ //ES5
+
+ function arrayToNumbersTwo( arr) {
+    let temp = []
+    for (let i = 0; i < arr.length; i ++) {
+        temp [i] = JSON.parse(arr[i])
+    }
+    return temp
+ }
+
+console.log(arrayToNumbersTwo(["1","3","6.7"]))
