@@ -119,9 +119,9 @@ console.log (getDays (
 // Ex : ["1","3","6.7"] -> [1,3,6.7]
 
 //ES6
-//  let arrayToNumbers = arr => arr.map( e => +e)
+ let arrayToNumbers = arr => arr.map( e => +e)
 
-//  console.log(arrayToNumbers(["1","3","6.7"]))
+ console.log(arrayToNumbers(["1","3","6.7"]))
 
  //ES5
 
@@ -134,3 +134,64 @@ console.log (getDays (
  }
 
 console.log(arrayToNumbersTwo(["1","3","6.7"]))
+
+//create a function that return (true) if all parameters are truthy and false otherwise.
+//EX. checkParam(true,true,true) -> true
+// checkParam(5, 1, 3,0 )-> false
+// Falsy values are false, 0 and ""
+
+function checkParam (string) {
+    let value = false
+    for( let i = 0; i <string.length; i ++) {
+        if(string[i] !== 0 && string[i] !== false && string[i] !== ""){
+            value = true
+        }
+    }
+    return value
+}
+ console.log(checkParam([1,1,1,1]))
+//ES6
+ const checkParamTwo = (...args) => args.every(Boolean)
+ console.log(checkParamTwo(5,7,4,8,9,7))
+
+ //ES5
+ function checkParamThree (param1, param2, param3,param4 ){
+    if(param1 && param2 &&param3 &&param4) {
+        return true
+    } else {
+        return false
+    }
+ }
+ console.log(checkParamThree(1,2))
+
+ //create a funtion to check if an array contains a particular number 
+ //Ex: checkArray ([5,5,6]),5 -> true
+ //Ex: checkArray ([1,3,5,7,10] , 2) -> flase
+
+//ES5
+function checkArray (arr,num) {
+
+        if(arr.includes(num)){
+            return true
+        } else 
+        return false
+    }
+
+    console.log(checkArray([8,7,9],4))
+
+//ES6
+const checkArrayTwo = (arr,el) => {
+    return arr.includes(el)
+}
+console.log(checkArrayTwo([5,5,6,5],5))
+
+// another ES5
+function checkArrayThree ( arr,x) {
+    for(let i=0; i < arr.length; i++){
+    if (arr[i] === x ){
+        return true
+    } 
+    }
+    return false
+}
+console.log(checkArrayThree([5,4,6],1))
