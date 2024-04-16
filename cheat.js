@@ -2,7 +2,7 @@ const readlineSync = require('readline-sync');
 
 // Initialize the game board
 let board = [
-  [null, null, null],
+  [null,null, null],
   [null, null, null],
   [null, null, null]
 ];
