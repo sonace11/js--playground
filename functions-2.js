@@ -105,16 +105,16 @@ output -> 1+6+11 = 18
  // create a function that returns the total number of arrays inside a given main array.
  //totalofArrays([[1,2,3],[4,5,6]]) -> total number of arrays = 2
 
-//  function totalofArrays(arr) {
-//     let count = 0
-//     for(let i = 0; i< arr.length; i++) {
-//         if(Array .isArray(arr[i])) {         //array .isArray checking true or false, if true the => will work 
-//             count++
-//         }
-//     }
-//     return count++
-//  }
-//  console.log(totalofArrays([[1,2,3],[4,5,6]]))
+ function totalofArrays(arr) {
+    let count = 0
+    for(let i = 0; i< arr.length; i++) {
+        if(Array .isArray(arr[i])) {         //array .isArray checking true or false, if true the => will work 
+            count++
+        }
+    }
+    return count++
+ }
+ console.log(totalofArrays([[1,2,3],[4,5,6]]))
 
  // create a function that takes a number as an argument and returns an array of numbers
  //counting down from the given number to zero

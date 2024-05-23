@@ -1,5 +1,3 @@
-
-
 const readlineSync = require('readline-sync');         // using readline sync to able interact with the game as user
 // declare the board of the game
 let board = [ 
@@ -27,14 +25,23 @@ printoutBoard()                           // call out printoutboard function to 
   }
  };
 
-function placepiece(){               // stuck still looking for answer
-  
-}
+ function placepiece(row, column) {
+    if (board[row][column] === null) {
+      board[row][column] = playerTurn;
+    }
+    turnPlay(); // Switch player turn
+      printoutBoard(); // Print the updated board
+    
+    }
+
 
  function playGame(){
   let row = readlineSync.questionInt(`player ${playerTurn}, enter the row (0-2): `)                    //using readline.sync.questionInt for user to put integer as input for the game
-  let column = readlineSync.questionInt(`player ${playerTurn}, enter the column (0-2): `)               // for row and column, player only use number between 0 - 2                                                                           // invoke placepiece function into rungame funtion 
- };
+  let column = readlineSync.questionInt(`player ${playerTurn}, enter the column (0-2): `)            // for row and column, player only use number between 0 - 2                                                                           // invoke placepiece function into rungame funtion 
+ placepiece(row,column);
+ winconditons(board);
+playGame();
+};
  playGame()                                                      // calling playgame function to play the game 
 
 function winconditons (board){         //declare win function conditions and check rows for  player 1 or 2 pieces 
@@ -47,7 +54,7 @@ function winconditons (board){         //declare win function conditions and che
     (board[0][0] == 'X' && board[0][1] =='X' && board[0][2]=='X') || (board[1][0] =='X' && board[1][1] =='X' && board[1][2]=='X')||(board[2][0]=='X' && board[2][1]=='X' && board[2][2]=='X')){
       return ' the winner is player 1'
     } else if(
-      (board[0][0] == 'O' && board[0][1]=='O '&& board[0][2]=='O') || (board[1][0]=='O' && board[1][1]=='O' && board[1][2]=='O') ||(board[2][0]=='O' && board[2][1]=='O' && board[2][2]=='O')){
+      (board[0][0] == 'O' && board[0][1]=='O'&& board[0][2]=='O') || (board[1][0]=='O' && board[1][1]=='O' && board[1][2]=='O') ||(board[2][0]=='O' && board[2][1]=='O' && board[2][2]=='O')){
         return 'the winner is player 2'
       } else if(                      // check diagnal of the board for player 1 and 2 pieces
         (board[0][0]=='X'&& board[1][1]=='X' && board[2][2]=='X') ||(board[2][0]=='X' && board[1][1]=='X' && board[0][2]=='X')
@@ -57,11 +64,7 @@ function winconditons (board){         //declare win function conditions and che
         (board[0][0]=='O'&& board[1][1]=='O' && board[2][2]=='O')||(board[2][0]=='O' && board[1][1]=='O' && board[0][2]=='O')
       ){
         return 'the winner is player 2'
-      } else { for(let i = 0; i < board.length; i ++){                   // start with if the game is draw if all the cells if filled out with out a winner
-             if(board[i]!== null){
-              return 'this game is a draw'
-             }
       }
-       }
-        }
-winconditons()            //calling the win function
+      }
+       
+ winconditons(board)            //calling the win function
