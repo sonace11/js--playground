@@ -43,3 +43,22 @@
         }
     }
     console.log(digiCount(-30345607))
+
+    // 1. create a function that takes an array of int as an argument and returns the same array in ascending order using 
+    // sort() method
+    //2. you have to sort the array creating ES5 own algorithum.
+
+    function ascending (array){
+         array = array.sort(function(a,b){
+            return a - b;
+        }
+    );
+    return array
+    }
+
+    console.log(ascending([44,88,2,9,20]))
+
+let arr1 = [4,9,20,41]
+for(let i =0; i<5;i++){
+
+}
