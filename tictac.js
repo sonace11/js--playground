@@ -25,29 +25,33 @@ printoutBoard();                           // call out printoutboard function to
   }
  };
 
- function draw (){
-  for(let i =0; i < board.length; i++){
-    for( let j =0; j < board[i].length; j++){
-      if(board[i][j] === null){
+ 
+ function placepiece(row, column) {
+    if (row >= 0 && row <= 2 && column >= 0 && column <= 2 && board[row][column] === null) {  // add in the condition if row are more and equal 0 also less or equal 2 (this allow players can only place row from 0 to 2)
+      board[row][column] = playerTurn;                                                        // with collumn also more and equal with 0 and less and equal with 2 (this allow players can only place column from 0 to 2) 
+                                                                                              //then row and column of the board are cells of null
+    turnPlay(); // Switch player turn
+      printoutBoard(); // Print the updated board
+    } else{ 
+      console.log(' this move is not valid, please try again');                            // if the move are not part of the conditon it will print this move is not valid, please try again
+      playGame();
+      printoutBoard();
+    }
+  }
+  
+ function draw (){                             // create function draw
+  for(let i =0; i < board.length; i++){                 // use for loop to read the arrays
+    for( let j =0; j < board[i].length; j++){            // use a nest for loop inside the other for loop to read the cell of the array
+      if(board[i][j] === null){                        // declare condition that if all the cells are null then its false
         return false
       }
       }
     }
-    return true
+    return true                                   // return the conditon as true
   }
 
- 
- function placepiece(row, column) {
-    if (board[row][column] === null) {
-      board[row][column] = playerTurn;
-    }
-    turnPlay(); // Switch player turn
-      printoutBoard(); // Print the updated board
-    
-    }
-function checkmove(){
 
-}
+
 
  function playGame(){
   let row = readlineSync.questionInt(`player ${playerTurn}, enter the row (0-2): `)                    //using readline.sync.questionInt for user to put integer as input for the game
@@ -77,10 +81,10 @@ function winconditons (board){         //declare win function conditions and che
         (board[0][0]=='O'&& board[1][1]=='O' && board[2][2]=='O')||(board[2][0]=='O' && board[1][1]=='O' && board[0][2]=='O')
       ){
         console.log ('the winner is player 2')
-      }else if(draw()){
-        console.log('this game is a draw');
+      }else if(draw()){                                     // call the draw function in the else af statement, if the no more cell as null left then the draw will be flase
+        console.log('this game is a draw');                 // print out this game is a draw
       } else {
-      playGame()
+      playGame()                                           // if none the condition are meet, then just keep playing game 
       }
       }
        
